@@ -6,5 +6,7 @@ package com.blast.apis;
 public class Blast {
     public Blast(){}
 
-    public void update(){}
+    public void update(){
+
+    }
 }
