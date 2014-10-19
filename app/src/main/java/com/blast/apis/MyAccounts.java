@@ -20,6 +20,7 @@ public class MyAccounts {
 
     /**
      * getst he facebook account contact info
+     * screw fb
      * @param a
      * @return
      */
@@ -56,4 +57,6 @@ public class MyAccounts {
         }
         return out;
     }
+
+
 }
