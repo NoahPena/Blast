@@ -36,10 +36,7 @@ public class MainActivity extends Activity {
         contacts1.add(new Contact("SMS", "user101"));
 
         people.add(new Person("Faggot Master", contacts1)); //people in list are in same order as in grid
-        people.add(new Person("Bane?", contacts1)); //has identical contacts!!! its whatev tho
-        people.add(new Person("James?", contacts1));
-        people.add(new Person("CIA?", contacts1));
-        people.add(new Person("4u", contacts1));
+        people.add(new Person("Bane", contacts1)); //has identical contacts!!! its whatev tho
         //end temp debug
 
         //setup gridview
