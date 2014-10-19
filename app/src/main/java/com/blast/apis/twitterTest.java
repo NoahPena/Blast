@@ -24,7 +24,7 @@ import twitter4j.conf.ConfigurationBuilder;
  */
 public class twitterTest {
 
-
+/*
     //unsafe as f****.
     static final String TWITTER_CONSUMER_KEY = "K1jXyCHvqE7p5HhLpkzMcDQPL";
     static final String TWITTER_CONSUMER_SECRET = "2v2Yy5XdO9GnQbihCOSm1BjROHC7sUW0paD3tf3unyQv4qYDSp";
@@ -64,10 +64,10 @@ public class twitterTest {
     public twitterTest(Activity a) {
         this.a = a;
         //initTwitter(a);
-        loginToTwitter(a);
+        //loginToTwitter(a);
     }
 
-    private void loginToTwitter(Activity a) {
+    /*private void loginToTwitter(Activity a) {
         // Check if already logged in
         if (!isTwitterLoggedInAlready()) {
             ConfigurationBuilder builder = new ConfigurationBuilder();
@@ -89,7 +89,7 @@ public class twitterTest {
     class initTwitterStatus extends AsyncTask<String, String, String> {
         /**
          * Function to login twitter
-         */
+
         protected String doInBackground(String... args) {
             try {
                 requestToken = twitter
@@ -234,5 +234,5 @@ public class twitterTest {
             return userID;
         }
     }
-
+*/
 }

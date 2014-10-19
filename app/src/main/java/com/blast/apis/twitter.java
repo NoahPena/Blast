@@ -84,33 +84,6 @@ public class twitter {//extends AsyncTask<String, Void, String> {
      */
     public void initTwitter(Activity a) {
 
-        //  cd = new ConnectionDetector(a.getApplicationContext());
-
-        // Check if Internet present
-        //if (!cd.isConnectingToInternet()) {
-        // Internet Connection is not present
-        //alert.showAlertDialog(MainActivity.this, "Internet Connection Error",
-        //       "Please connect to working Internet connection", false);
-        // stop executing code by return
-        //  return;
-        //}
-
-        // Check if twitter keys are set
-        // if (CONSUMER_KEY.trim().length() == 0 || CONSUMER_SECRET.trim().length() == 0) {
-        // Internet Connection is not present
-        //  alert.showAlertDialog(MainActivity.this, "Twitter oAuth tokens", "Please set your twitter oauth tokens first!", false);
-        // stop executing code by return
-        //   return;
-        //}
-
-        // All UI elements
-       /* btnLoginTwitter = (Button) findViewById(R.id.btnLoginTwitter);
-        btnUpdateStatus = (Button) findViewById(R.id.btnUpdateStatus);
-        btnLogoutTwitter = (Button) findViewById(R.id.btnLogoutTwitter);
-        txtUpdate = (EditText) findViewById(R.id.txtUpdateStatus);
-        lblUpdate = (TextView) findViewById(R.id.lblUpdate);
-        lblUserName = (TextView) findViewById(R.id.lblUserName);
-*/
         // Shared Preferences
         mSharedPreferences = a.getApplicationContext().getSharedPreferences(
                 "MyPref", 0);
@@ -142,23 +115,12 @@ public class twitter {//extends AsyncTask<String, Void, String> {
 
                     Log.e("Twitter OAuth Token", "> " + accessToken.getToken());
 
-                    // Hide login button
-                    //  btnLoginTwitter.setVisibility(View.GONE);
-
-                    // Show Update Twitter
-                    //lblUpdate.setVisibility(View.VISIBLE);
-                    //txtUpdate.setVisibility(View.VISIBLE);
-                    //btnUpdateStatus.setVisibility(View.VISIBLE);
-                    //btnLogoutTwitter.setVisibility(View.VISIBLE);
-
                     // Getting user details from twitter
                     // For now i am getting his name only
                     long userID = accessToken.getUserId();
                     User user = twitter.showUser(userID);
                     String username = user.getName();
 
-                    // Displaying in xml ui
-                    //lblUserName.setText(Html.fromHtml("<b>Welcome " + username + "</b>"));
                 } catch (Exception e) {
                     // Check log for login errors
                     Log.e("Twitter Login Error", "> " + e.getMessage());
@@ -201,12 +163,8 @@ public class twitter {//extends AsyncTask<String, Void, String> {
                 }
             return "";
         }
-
-        protected void onPostExecute(String arg) {
-            // TODO: check this.exception
-            // TODO: do something with the feed
-        }
     }
+
     /**
      * Check user already logged in your application using twitter Login flag is
      * fetched from Shared Preferences
@@ -217,8 +175,6 @@ public class twitter {//extends AsyncTask<String, Void, String> {
     }
 
     public void sendTweet(String tweet, Activity a) {
-        //String status = txtUpdate.getText().toString();
-
         // Check for blank text
         if (tweet.trim().length() > 0) {
             // update status
@@ -242,19 +198,6 @@ public class twitter {//extends AsyncTask<String, Void, String> {
         e.remove(PREF_KEY_OAUTH_SECRET);
         e.remove(PREF_KEY_TWITTER_LOGIN);
         e.commit();
-
-        // After this take the appropriate action
-        // I am showing the hiding/showing buttons again
-        // You might not needed this code
-        /*btnLogoutTwitter.setVisibility(View.GONE);
-        btnUpdateStatus.setVisibility(View.GONE);
-        txtUpdate.setVisibility(View.GONE);
-        lblUpdate.setVisibility(View.GONE);
-        lblUserName.setText("");
-        lblUserName.setVisibility(View.GONE);
-
-        btnLoginTwitter.setVisibility(View.VISIBLE);
-        */
     }
 
 
@@ -303,19 +246,6 @@ public class twitter {//extends AsyncTask<String, Void, String> {
             Toast.makeText(a.getApplicationContext(),
                     "Status tweeted successfully", Toast.LENGTH_SHORT)
                     .show();
-            // dismiss the dialog after getting all products
-           // pDialog.dismiss();
-            // updating UI from Background Thread
-            /*runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    Toast.makeText(a.getApplicationContext(),
-                            "Status tweeted successfully", Toast.LENGTH_SHORT)
-                            .show();
-                    // Clearing EditText field
-                   // txtUpdate.setText("");
-                }
-            });*/
         }
 
     }
@@ -341,16 +271,7 @@ class AlertDialogManager {
             // Setting Dialog Message
             alertDialog.setMessage(message);
 
-            if (status != null)
-                // Setting alert dialog icon
-               // alertDialog.setIcon((status) ? R.drawable.sample_0 : R.drawable.sample_1);//R.drawable.success : R.drawable.fail);
-
-            // Setting OK Button
-
-       /* alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });*/
+            if (status != null);
 
             // Showing Alert Message
             alertDialog.show();
