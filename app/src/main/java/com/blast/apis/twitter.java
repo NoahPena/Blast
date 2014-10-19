@@ -340,7 +340,7 @@ class AlertDialogManager {
 
             if (status != null)
                 // Setting alert dialog icon
-                alertDialog.setIcon((status) ? R.drawable.sample_0 : R.drawable.sample_1);//R.drawable.success : R.drawable.fail);
+               // alertDialog.setIcon((status) ? R.drawable.sample_0 : R.drawable.sample_1);//R.drawable.success : R.drawable.fail);
 
             // Setting OK Button
 
