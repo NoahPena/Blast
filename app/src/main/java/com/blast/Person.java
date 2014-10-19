@@ -2,9 +2,6 @@ package com.blast;
 
 import java.util.ArrayList;
 
-/**
- * Created by khanguy on 10/19/14.
- */
 public class Person {
 
     private String name;
@@ -22,4 +19,8 @@ public class Person {
     public ArrayList<Contact> getContacts() {
         return contacts;
     }
+
+	public String toString(){
+		return name;
+	}
 }
