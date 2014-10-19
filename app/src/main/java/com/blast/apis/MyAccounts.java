@@ -4,7 +4,7 @@ import android.accounts.Account;
 import android.accounts.AccountManagerCallback;
 import android.accounts.AccountManagerFuture;
 import android.app.Activity;
-import com.blast.R;
+//import com.blast.R;
 import android.accounts.AccountManager;
 import android.os.Bundle;
 import android.util.Log;
