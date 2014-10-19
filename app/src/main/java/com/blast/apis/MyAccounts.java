@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * handles all the accounts for the app
  */
 public class MyAccounts {
-    public static final String MY_NAME = "com.blast";
+    public static final String MY_NAME = "blastr.me";
 
     /**
      * getst he facebook account contact info
@@ -58,5 +58,9 @@ public class MyAccounts {
         return out;
     }
 
+   public Account getTwitterAccount(Activity a){
+
+
+   }
 
 }
