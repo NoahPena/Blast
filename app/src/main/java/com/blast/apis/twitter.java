@@ -47,7 +47,7 @@ public class twitter {//extends AsyncTask<String, Void, String> {
     static String PREFERENCE_NAME = "twitter_oauth";
     static final String PREF_KEY_OAUTH_TOKEN = "oauth_token";
     static final String PREF_KEY_OAUTH_SECRET = "oauth_token_secret";
-    static final String PREF_KEY_TWITTER_LOGIN = "isTwitterLogedIn";
+    static final String PREF_KEY_TWITTER_LOGIN = "isTwitterLoggedIn";
 
     static final String TWITTER_CALLBACK_URL = "oauth://t4jsample";
 
@@ -71,11 +71,12 @@ public class twitter {//extends AsyncTask<String, Void, String> {
 
     Activity a;
 
-   public twitter(Activity a){
-       this.a = a;
-       initTwitter(a);
-       loginToTwitter(a);
-   }
+    public twitter(Activity a) {
+        this.a = a;
+        initTwitter(a);
+        loginToTwitter(a);
+    }
+
     /**
      * This if conditions is tested once is
      * redirected from twitter page. Parse the uri to get oAuth
@@ -83,24 +84,24 @@ public class twitter {//extends AsyncTask<String, Void, String> {
      */
     public void initTwitter(Activity a) {
 
-        cd = new ConnectionDetector(a.getApplicationContext());
+        //  cd = new ConnectionDetector(a.getApplicationContext());
 
         // Check if Internet present
-        if (!cd.isConnectingToInternet()) {
-            // Internet Connection is not present
-            //alert.showAlertDialog(MainActivity.this, "Internet Connection Error",
-            //       "Please connect to working Internet connection", false);
-            // stop executing code by return
-            return;
-        }
+        //if (!cd.isConnectingToInternet()) {
+        // Internet Connection is not present
+        //alert.showAlertDialog(MainActivity.this, "Internet Connection Error",
+        //       "Please connect to working Internet connection", false);
+        // stop executing code by return
+        //  return;
+        //}
 
         // Check if twitter keys are set
-        if (CONSUMER_KEY.trim().length() == 0 || CONSUMER_SECRET.trim().length() == 0) {
-            // Internet Connection is not present
-            //  alert.showAlertDialog(MainActivity.this, "Twitter oAuth tokens", "Please set your twitter oauth tokens first!", false);
-            // stop executing code by return
-            return;
-        }
+        // if (CONSUMER_KEY.trim().length() == 0 || CONSUMER_SECRET.trim().length() == 0) {
+        // Internet Connection is not present
+        //  alert.showAlertDialog(MainActivity.this, "Twitter oAuth tokens", "Please set your twitter oauth tokens first!", false);
+        // stop executing code by return
+        //   return;
+        //}
 
         // All UI elements
        /* btnLoginTwitter = (Button) findViewById(R.id.btnLoginTwitter);
@@ -123,7 +124,8 @@ public class twitter {//extends AsyncTask<String, Void, String> {
                 try {
                     // Get the access token
                     AccessToken accessToken = twitter.getOAuthAccessToken(
-                            requestToken, verifier);
+                      //      requestToken, verifier);
+                            verifier);
 
 
                     // Shared Preferences
@@ -165,9 +167,6 @@ public class twitter {//extends AsyncTask<String, Void, String> {
         }
     }
 
-    /**
-     * Function to login twitter
-     */
     private void loginToTwitter(Activity a) {
         // Check if already logged in
         if (!isTwitterLoggedInAlready()) {
@@ -179,21 +178,35 @@ public class twitter {//extends AsyncTask<String, Void, String> {
             TwitterFactory factory = new TwitterFactory(configuration);
             twitter = factory.getInstance();
 
-            try {
-                requestToken = twitter
-                        .getOAuthRequestToken(TWITTER_CALLBACK_URL);
-                a.startActivity(new Intent(Intent.ACTION_VIEW, Uri
-                        .parse(requestToken.getAuthenticationURL())));
-            } catch (TwitterException e) {
-                e.printStackTrace();
-            }
-        } else {
+            new initTwitterStatus().execute("");
+        }
+        else{
             // user already logged into twitter
             Toast.makeText(a.getApplicationContext(),
                     "Already Logged into twitter", Toast.LENGTH_LONG).show();
         }
     }
+    class initTwitterStatus extends AsyncTask<String, String, String> {
+        /**
+         * Function to login twitter
+         */
+        protected String doInBackground(String... args) {
+                try {
+                    requestToken = twitter
+                            .getOAuthRequestToken(TWITTER_CALLBACK_URL);
+                    a.startActivity(new Intent(Intent.ACTION_VIEW, Uri
+                            .parse(requestToken.getAuthenticationURL())));
+                } catch (TwitterException e) {
+                    e.printStackTrace();
+                }
+            return "";
+        }
 
+        protected void onPostExecute(String arg) {
+            // TODO: check this.exception
+            // TODO: do something with the feed
+        }
+    }
     /**
      * Check user already logged in your application using twitter Login flag is
      * fetched from Shared Preferences
@@ -222,7 +235,7 @@ public class twitter {//extends AsyncTask<String, Void, String> {
      * Function to logout from twitter
      * It will just clear the application shared preferences
      * */
-    private void logoutFromTwitter() {
+    public void logoutFromTwitter() {
         // Clear the shared preferences
         SharedPreferences.Editor e = mSharedPreferences.edit();
         e.remove(PREF_KEY_OAUTH_TOKEN);
@@ -249,19 +262,6 @@ public class twitter {//extends AsyncTask<String, Void, String> {
      * Function to update status
      */
     class updateTwitterStatus extends AsyncTask<String, String, String> {
-
-        /**
-         * Before starting background thread Show Progress Dialog
-         */
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        /*pDialog = new ProgressDialog(MainActivity.this);
-        pDialog.setMessage("Updating to twitter...");
-        pDialog.setIndeterminate(false);
-        pDialog.setCancelable(false);
-        pDialog.show();*/
-        }
 
         /**
          * getting Places JSON
@@ -300,6 +300,9 @@ public class twitter {//extends AsyncTask<String, Void, String> {
          * *
          */
         protected void onPostExecute(String file_url) {
+            Toast.makeText(a.getApplicationContext(),
+                    "Status tweeted successfully", Toast.LENGTH_SHORT)
+                    .show();
             // dismiss the dialog after getting all products
            // pDialog.dismiss();
             // updating UI from Background Thread

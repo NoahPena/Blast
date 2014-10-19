@@ -12,10 +12,10 @@ public class Debug {
 
     public static final String alexTwitter= "brockuniera";
     public static final String alexEmail= "brockuniera@gmail.com";
-    public static final String alexPhone= "9045173957";
+    public static final String alexPhone= "";
     public static final String aliTwitter = "khanguy101";
     public static final String aliEmail = "Khanguy101@gmail.com";
-    public static final String aliPhone = "2148027190";
+    public static final String aliPhone = "";
 
 
     public static ArrayList<Person> people(){
