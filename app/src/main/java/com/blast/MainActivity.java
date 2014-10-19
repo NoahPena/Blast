@@ -1,5 +1,6 @@
 package com.blast;
 
+import android.accounts.Account;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,7 +12,12 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //initDb();
         setContentView(R.layout.activity_main);
+
+        //String [] resources = getResources().getStringArray(R.array.accounts);
+
     }
 
 
