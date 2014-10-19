@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.blast.apis.Blast;
+
 import java.util.ArrayList;
 
 
@@ -34,6 +36,9 @@ public class MainActivity extends Activity {
 
         people.add(new Person("Faggot Master", contacts1)); //people in list are in same order as in grid
         people.add(new Person("Bane?", contacts1)); //has identical contacts!!! its whatev tho
+        people.add(new Person("James?", contacts1)); //has identical contacts!!! its whatev tho
+        people.add(new Person("CIA?", contacts1)); //has identical contacts!!! its whatev tho
+        people.add(new Person("4u", contacts1)); //has identical contacts!!! its whatev tho
         //end temp debug
 
         //setup gridview
@@ -62,6 +67,8 @@ public class MainActivity extends Activity {
         //Logic for BLAST! button
 
         //Blast(personsToProcess);
+        Blast blast = new Blast();
+        blast.update();
 
         personsToProcess.clear();
         Toast.makeText(MainActivity.this, "Cleared personsToProcess.", Toast.LENGTH_SHORT).show(); //debug

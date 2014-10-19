@@ -3,19 +3,22 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:longClickable="false"
+    android:layoutMode="clipBounds">
 
     <ImageView
         android:id="@+id/person_icon"
-        android:layout_width="173dp"
-        android:layout_height="100dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:src="@drawable/sample_0"  />
+        android:src="@drawable/sample_4"  />
 
     <TextView
        android:id="@+id/person_caption"
-       android:layout_width="173dp"
+       android:layout_width="fill_parent"
        android:layout_height="wrap_content"
        android:text="@string/default_name"
        android:textSize="20sp"
