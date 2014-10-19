@@ -24,4 +24,7 @@ dependencies {
     compile 'com.android.support:support-v13:21.0.0'
     compile 'com.android.support:support-v4:21.0.0'
     compile 'org.twitter4j:twitter4j:4.0.2'
+    compile files('libs/activation.jar')
+    compile files('libs/additionnal.jar')
+    compile files('libs/mail.jar')
 }
