@@ -58,9 +58,9 @@ public class MyAccounts {
         return out;
     }
 
-   public Account getTwitterAccount(Activity a){
+ //  public Account getTwitterAccount(Activity a){
 
 
-   }
+   //}
 
 }

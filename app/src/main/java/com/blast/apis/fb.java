@@ -4,8 +4,8 @@ import android.accounts.Account;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.facebook.Session;
-import com.facebook.android.Facebook;
+//import com.facebook.Session;
+//import com.facebook.android.Facebook;
 
 /**
  * Created by khanguy on 10/18/14.
@@ -19,11 +19,11 @@ public class fb {
    //public fb()
     public static String getToken(Account account){
         String token = "";
-        Session session = Session.getActiveSession();
-        if(session != null && session.getState().isOpened()){
-            token = session.getAccessToken();
-            Log.i("facebookSessionToken", token);
-        }
+  //      Session session = Session.getActiveSession();
+    //    if(session != null && session.getState().isOpened()){
+      //      token = session.getAccessToken();
+        //    Log.i("facebookSessionToken", token);
+        //}
 
         return token;
     }
