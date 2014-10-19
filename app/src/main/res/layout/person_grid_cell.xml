@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The layout for individual grid cells of persons -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/person_icon"
+        android:layout_width="173dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/sample_0"  />
+
+    <TextView
+       android:id="@+id/person_caption"
+       android:layout_width="173dp"
+       android:layout_height="wrap_content"
+       android:text="@string/default_name"
+       android:textSize="20sp"
+       android:textStyle="bold"
+       android:gravity="center" />
+
+</LinearLayout>

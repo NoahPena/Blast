@@ -28,11 +28,13 @@ public class MainActivity extends Activity {
         //list of people to display and know about for contacting
         final ArrayList<Person> people = new ArrayList<Person>();
 
-        //Temp...
-        ArrayList<Contact> contacts = new ArrayList<Contact>();
-        contacts.add(new Contact("SMS", "user101"));
-        people.add(new Person("Faggot Master", contacts)); //people in list are in same order as in grid
-        //end temp
+        //Temp... debug
+        ArrayList<Contact> contacts1 = new ArrayList<Contact>();
+        contacts1.add(new Contact("SMS", "user101"));
+
+        people.add(new Person("Faggot Master", contacts1)); //people in list are in same order as in grid
+        people.add(new Person("Bane?", contacts1)); //has identical contacts!!! its whatev tho
+        //end temp debug
 
         //setup gridview
         GridView gridview = (GridView) findViewById(R.id.gridview);
@@ -103,8 +105,9 @@ public class MainActivity extends Activity {
                 holder=new ViewHolder(cell);
                 cell.setTag(holder);
             }
-            if(position < 2)//test
+            if(position < 1)//debug
                 holder.icon.setImageResource(R.drawable.sample_1);
+
             return cell;
         }
     }

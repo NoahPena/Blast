@@ -6,4 +6,7 @@
     <string name="blast">BLAST!</string>
     <string name="default_name">Default Name</string>
 
+    <string name="title_activity_init">Init Name</string>
+    <string name="title_activity_settings">Init Settings</string>
+
 </resources>
