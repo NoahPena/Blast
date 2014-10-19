@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.blast.apis.Blast;
@@ -36,9 +37,9 @@ public class MainActivity extends Activity {
 
         people.add(new Person("Faggot Master", contacts1)); //people in list are in same order as in grid
         people.add(new Person("Bane?", contacts1)); //has identical contacts!!! its whatev tho
-        people.add(new Person("James?", contacts1)); //has identical contacts!!! its whatev tho
-        people.add(new Person("CIA?", contacts1)); //has identical contacts!!! its whatev tho
-        people.add(new Person("4u", contacts1)); //has identical contacts!!! its whatev tho
+        people.add(new Person("James?", contacts1));
+        people.add(new Person("CIA?", contacts1));
+        people.add(new Person("4u", contacts1));
         //end temp debug
 
         //setup gridview
@@ -53,11 +54,11 @@ public class MainActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 if(personsToProcess.contains(people.get(position))) {
                     personsToProcess.remove(people.get(position));
-                    Toast.makeText(MainActivity.this, position + " removed from personsToProcess; duplicate entry.", Toast.LENGTH_SHORT).show(); //debug
+                    //Toast.makeText(MainActivity.this, position + " removed from personsToProcess; duplicate entry.", Toast.LENGTH_SHORT).show(); //debug
                 }
                 else {
                     personsToProcess.add(people.get(position));
-                    Toast.makeText(MainActivity.this, position + " added to personsToProcess.", Toast.LENGTH_SHORT).show(); //debug
+                    //Toast.makeText(MainActivity.this, position + " added to personsToProcess.", Toast.LENGTH_SHORT).show(); //debug
                 }
             }
         });
@@ -71,7 +72,7 @@ public class MainActivity extends Activity {
         blast.update();
 
         personsToProcess.clear();
-        Toast.makeText(MainActivity.this, "Cleared personsToProcess.", Toast.LENGTH_SHORT).show(); //debug
+        //Toast.makeText(MainActivity.this, "Cleared personsToProcess.", Toast.LENGTH_SHORT).show(); //debug
     }
 
 
@@ -112,8 +113,7 @@ public class MainActivity extends Activity {
                 holder=new ViewHolder(cell);
                 cell.setTag(holder);
             }
-            if(position < 1)//debug
-                holder.icon.setImageResource(R.drawable.sample_1);
+            //holder.icon.setImageResource(R.drawable.sample_1);
 
             return cell;
         }
